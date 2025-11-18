@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Potty Time Hero — Rewards</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align:center; background:#fffaf0; padding:18px; }
+    h1 { color:#ff6b81; }
+    #stickers { margin-top:18px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+    .sticker { width:110px; height:110px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+               background:#fff; box-shadow:0 4px 8px rgba(0,0,0,0.08); font-size:48px; }
+    #counter { margin-top:12px; font-weight:bold; color:#2b7a4b; }
+    button { margin-top:14px; padding:10px 18px; font-size:18px; border-radius:10px; background:#4caf50; color:white; border:none; }
+    a { display:block; margin-top:18px; color:#4a90e2; text-decoration:none; }
+  </style>
+</head>
+<body>
+  <h1>Rewards</h1>
+  <div id="stickers"></div>
+  <div id="counter">You have <span id="count">0</span> sticker(s)</div>
+  <button onclick="useSticker()">Use a sticker (celebrate!)</button>
+  <a href="index.html">Back to the big button</a>
+
+  <script>
+    const KEY = 'potty_stickers_v1';
+    function getCount(){ return parseInt(localStorage.getItem(KEY) || '0', 10); }
+    function setCount(n){ localStorage.setItem(KEY, String(n)); document.getElementById('count').textContent = n; renderStickers(); }
+
+    function renderStickers(){
+      const wrap = document.getElementById('stickers');
+      wrap.innerHTML = '';
+      const n = getCount();
+      for(let i=0;i<Math.min(n,12); i++){
+        const div = document.createElement('div');
+        div.className = 'sticker';
+        // emoji stickers
+        const emojiList = ['🦖','🌟','🎟️','🏆','🦄','🌈'];
+        div.textContent = emojiList[i % emojiList.length];
+        wrap.appendChild(div);
+      }
+    }
+
+    function useSticker(){
+      let n = getCount();
+      if(n <= 0){ alert('No stickers yet — tap the big button first!'); return; }
+      n = n - 1;
+      setCount(n);
+      // small celebration
+      alert('Yay! You used a sticker — great job!');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => setCount(getCount()));
+  </script>
+</body>
+</html>
