@@ -13,7 +13,7 @@ Interactive activities and games
 Helpful tips and guidance for parents
 
 How to Use:
-Simply visit the website and explore the different activities and resources available.
+Visit the website and explore the different activities and resources available.
 
 Installation:
 This is a web-based project, so no installation is required. Just access it through your browser.
