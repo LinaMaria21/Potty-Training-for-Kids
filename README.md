@@ -2,7 +2,8 @@
 
 Description:
 
-A fun and interactive website designed to help kids with potty training. It features engaging activities and guidance to make the process enjoyable and easy.
+This is a fun and interactive website designed to help kids with potty training. 
+It features engaging activities and guidance to make the process enjoyable and easy.
 
 Features:
 
@@ -20,3 +21,5 @@ This is a web-based project, so no installation is required. Just access it thro
 
 Contributing:
 Feel free to fork the repository and submit pull requests if you have suggestions or improvements!
+
+Thank you!
