@@ -1,6 +1,5 @@
 # Potty-Training-for-Kids
 
-Description:
 
 This is a fun and interactive website designed to help kids with potty training. 
 It features engaging activities and guidance to make the process enjoyable and easy.
