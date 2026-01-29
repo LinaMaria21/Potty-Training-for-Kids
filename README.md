@@ -1,6 +1,4 @@
 # Potty-Training-for-Kids
-
-
 This is a fun and interactive website designed to help kids with potty training. 
 it helped my kids, so I want other people to use it too.
 It features engaging activities and guidance to make the process enjoyable and easy.
@@ -14,7 +12,7 @@ Interactive activities and games
 Helpful tips and guidance for parents
 
 How to Use:
-Visit the website and explore the different activities and resources available.
+Visit the website and explore the different activities available.
 
 Installation:
 This is a web-based project, so no installation is required. Just access it through your browser.
