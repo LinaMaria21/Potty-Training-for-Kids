@@ -5,7 +5,7 @@ It features engaging activities and guidance to make the process enjoyable and e
 
 Features:
 
-Engaging and child and parents friendly interface.
+Engaging, user friendly interface.
 
 Interactive activities and games
 
