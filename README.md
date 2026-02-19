@@ -20,4 +20,3 @@ Does not need intalation because is a web based project. You just need access th
 Contributing:
 Feel free to fork the repository and submit pull requests if you have suggestions or improvements!
 
-Thank you!
