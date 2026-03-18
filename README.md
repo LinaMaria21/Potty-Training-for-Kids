@@ -4,10 +4,12 @@ As a mom, it helped my kids, so I want other people to use it too.
 It features engaging activities and guidance to make the process enjoyable and easy.
 
 Features:
+  
+User friendly interface
 
-Engaging, user friendly interface.
+Engaging.
 
-Interactive activities and games
+Interactive activities and game
 
 Helpful tips and guidance for parents
 
