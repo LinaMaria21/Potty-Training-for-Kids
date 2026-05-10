@@ -4,11 +4,12 @@ Fun and interactive website designed to help kids with potty training.
 As a mom of 2 childs, it helped me with my kids, so I want other people to use it too.
 It features engaging activities and guidance to make the process enjoyable and easy.
 
+
 Features:
   
 User friendly interface
 
-Engaging.
+Engaging
 
 Interactive activities and game
 
