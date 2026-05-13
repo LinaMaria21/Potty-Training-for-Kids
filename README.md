@@ -9,8 +9,6 @@ Features:
   
 User friendly interface
 
-Engaging
-
 Interactive activities and game
 
 Helpful tips and guidance for parents
