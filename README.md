@@ -1,10 +1,8 @@
-# Potty-Training-for-Kids
-Potty training
-Fun and interactive website designed to help kids with potty training. 
-As a mom, it helped me with my kids, so I want other people to use it too.
-It features engaging activities and guidance to make the process enjoyable and easy.
+Potty-Training-for-Kids
 
+A fun and interactive website created to support children through potty training.
 
+As a parent, I found these methods helpful with my own kids and wanted to share them with other families. The site includes engaging activities, helpful tips, and simple guidance designed to make potty training a more positive and enjoyable experience for both children and parents.
 Features:
   
 User friendly interface
