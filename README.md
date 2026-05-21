@@ -7,7 +7,7 @@ Features:
   
 User friendly interface
 
-Interactive activities and game
+Interactive activities
 
 Helpful tips and guidance for parents
 
