@@ -1,6 +1,6 @@
 Potty-Training-for-Kids
 
-
+Fun and interactive website created to support children through potty training.
 
 
 
