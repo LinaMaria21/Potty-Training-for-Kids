@@ -1,4 +1,5 @@
-Potty Training for-Kids
+Potty Training  
+for Kids
 I created this for kids, and also for parents who wants to support their children and make their lives a little bit easier
 Fun and interactive website created to support children through potty training.
 
