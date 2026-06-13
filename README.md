@@ -3,8 +3,6 @@ for Kids
 I created this for kids, and also for parents who wants to support their children and make their lives a little bit easier
 Fun and interactive website created to support children through potty training.
 
-
-
 As a mom of two boys, I found these methods helpful with my own kids and wanted to share them with other families. The site includes engaging activities, helpful tips, and simple guidance designed to make potty training a more positive and enjoyable experience for both children and parents.
 
 Features:
