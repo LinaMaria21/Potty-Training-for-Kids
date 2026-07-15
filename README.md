@@ -6,26 +6,33 @@ Link:
 http://lina-potty-hero-2025.s3-website.us-east-2.amazonaws.com/
 
 
-Potty Training  for Kids
 
-I created this for kids, and also for parents who wants to support their children and make their own process  a little bit easier
-Fun and interactive website created to support children through potty training.
+# Potty Training Rewards 🦖
 
-As a mom, I found these methods helpful with my own kids and wanted to share them with other families. The site includes engaging activities, helpful tips, and simple guidance designed to make potty training a more positive and enjoyable experience for both children and parents.
+A serverless web app that turns potty training into a reward-based experience for kids — built to get hands-on practice with core AWS services.
 
+## Why
+As a parent, I've seen reward-based encouragement work well during potty training. I built this both as a useful tool and as a way to practice serverless architecture end to end.
 
-Features:
-  
-User friendly interface
-Interactive activities
-Helpful tips and guidance for parents
+## How it works
+A child enters their name and taps "I went potty!" — triggering a celebration animation and updating their reward count, stored in the cloud.
+Browser → S3 (static site) → API Gateway → Lambda → DynamoDB
 
-How to Use:
-Visit the website and explore the different activities available.
+## Stack
+- **Frontend:** HTML/CSS/JS, hosted on S3 static website hosting
+- **Backend:** API Gateway (HTTP API) → Lambda (Python 3.12)
+- **Database:** DynamoDB, on-demand capacity
 
-Installation:
-Does not need intalation because is a web based project. You just need access through your browser.
+## Why these choices
+- S3 static hosting — no server to manage, near-zero cost
+- HTTP API over REST API — cheaper and lower latency for this simple request pattern
+- DynamoDB on-demand — avoids paying for idle capacity on low, unpredictable traffic
 
-Contributing:
-Feel free to fork the repository and submit pull requests if you have suggestions or improvements!
+## Deploy
+```bash
+sam build && sam deploy --guided
+aws s3 sync frontend/ s3://your-bucket-name --acl public-read
+```
 
+## Future improvements
+Cognito login for parents, progress dashboard, multiple reward types, CI/CD via CodePipeline.
