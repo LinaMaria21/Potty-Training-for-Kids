@@ -1,4 +1,9 @@
-https://linamaria21.github.io/Potty-Training-for-Kids/
+<img width="1763" height="1007" alt="Screenshot 2026-07-15 130034" src="https://github.com/user-attachments/assets/22562738-b3c6-4f57-bf6d-b5c2e4310bc6" />
+<img width="1838" height="953" alt="Screenshot 2026-07-15 130717" src="https://github.com/user-attachments/assets/dafcefe9-7232-41ef-8951-9cc21b2ef075" />
+
+
+Link: 
+http://lina-potty-hero-2025.s3-website.us-east-2.amazonaws.com/
 
 
 Potty Training  for Kids
