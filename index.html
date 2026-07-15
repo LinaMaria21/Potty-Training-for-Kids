@@ -186,11 +186,9 @@ childId:childId
 })
 });
 
-const result=await response.json();
+const data = await response.json();
 
-const data=JSON.parse(result.body);
-
-document.getElementById("count").textContent=data.rewards;
+document.getElementById("count").textContent = data.rewards;
 
 document.getElementById("reward").style.display="block";
 
