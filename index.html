@@ -89,22 +89,33 @@
       }
     });
 
-    function handleTap(){
-      if(busy) return;
-      busy = true;
-      setTimeout(()=> busy=false, 2000);
+    async function handleTap() {
+  if (busy) return;
+  busy = true;
+  setTimeout(() => busy = false, 2000);
 
-      // increment sticker count
-      const newCount = getCount() + 1;
-      setCount(newCount);
-      document.getElementById('reward').style.display = 'block';
+  try {
+    const response = await fetch(
+      "https://67q8x01rs0.execute-api.us-east-2.amazonaws.com/reward",
+      {
+        method: "POST"
+      }
+    );
 
-      // play silly sound
-      document.getElementById("cheerSound").play();
+    const result = await response.json();
+    const data = JSON.parse(result.body);
 
-      // show confetti
-      createConfetti(24);
-    }
+    document.getElementById("count").textContent = data.rewards;
+    document.getElementById("reward").style.display = "block";
+
+    document.getElementById("cheerSound").play();
+    createConfetti(24);
+
+  } catch (error) {
+    console.error(error);
+    alert("Unable to save reward.");
+  }
+}
 
     function createConfetti(count){
       const area = document.getElementById('confettiArea');
