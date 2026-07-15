@@ -1,159 +1,253 @@
 <!doctype html>
 <html lang="en">
 <head>
-  
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Potty Time Hero</title>
-  <style>
-    body { margin:0; font-family: Arial, Helvetica, sans-serif; background: linear-gradient(#fff8e6, #e9f7ff); text-align:center; }
-    header { padding:18px 10px; }
-    h1 { color:#ff5aa5; font-size:36px; margin:6px 0; }
-    .sub { color:#333; margin-bottom:12px; }
-    #bigBtn {
-      font-size:34px;
-      background: linear-gradient(#4caf50,#2e8b57);
-      color:white;
-      padding:28px 40px;
-      border-radius:28px;
-      border:none;
-      box-shadow: 0 6px 0 #26774f;
-      cursor:pointer;
-      touch-action: manipulation;
-    }
-    #bigBtn:active { transform: translateY(3px); box-shadow: 0 3px 0 #26774f; }
-    #reward {
-      margin-top:18px;
-      display:none;
-    }
-    #reward img { max-width:85%; border-radius:12px; }
-    #count { font-weight:bold; color:#2b7a4b; }
-    nav { margin-top:18px; }
-    a.link { color:#4a90e2; text-decoration:none; font-size:16px; margin:0 8px; }
-    /* confetti */
-    .confetti {
-      position:fixed; left:0; right:0; top:0; pointer-events:none; z-index:9999;
-    }
-    .confetti > span {
-      display:block; width:10px; height:14px; position:absolute; opacity:0.95;
-      transform-origin: center;
-      animation: fall 1200ms linear forwards;
-    }
-    @keyframes fall {
-      0% { transform: translateY(-10vh) rotate(0deg); opacity:1; }
-      100% { transform: translateY(110vh) rotate(360deg); opacity:0; }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Potty Time Hero 🚽✨</h1>
-    <div class="sub">Tap the big button when you went potty!</div>
-  </header>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Potty Time Hero</title>
 
-  <main>
-
-<label for="childId"><strong>Child's Name</strong></label><br>
-<input
-    type="text"
-    id="childId"
-    placeholder="Enter child's name"
-    value="Emma"
-    style="padding:10px;font-size:18px;border-radius:8px;margin-bottom:20px;">
-<br><br>
-
-<button id="bigBtn" onclick="handleTap()">I went potty!</button>
-
-    <div id="reward" aria-live="polite">
-      <h2>🎉 Great job! 🎉</h2>
-      <p>You earned <span id="count">0</span> sticker(s)</p>
-      <img src="https://media2.giphy.com/media/JZLaL7vxYBMwOw4Vjd/giphy.gif" alt="Dancing dinosaur" />
-    </div>
-
-    <nav>
-      <a class="link" href="rewards.html">More rewards</a> |
-      <a class="link" href="parents.html">Parents</a>
-    </nav>
-  </main>
-
-  <div class="confetti" id="confettiArea"></div>
-
-  <!-- 🎵 funny sound (upload your own mp3 or use "tinkle.mp3") -->
-  <audio id="cheerSound" src="greatjob.mp3" preload="auto"></audio>
-
-  <script>
-    // localStorage key
-    const KEY = 'potty_stickers_v1';
-    // Debounce taps for 2 seconds
-    let busy = false;
-
-    function getCount(){ return parseInt(localStorage.getItem(KEY) || '0', 10); }
-    function setCount(n){ localStorage.setItem(KEY, String(n)); document.getElementById('count').textContent = n; }
-
-    // on load show existing count if >0
-    document.addEventListener('DOMContentLoaded', () => {
-      const n = getCount();
-      if(n > 0) {
-        document.getElementById('reward').style.display = 'block';
-        setCount(n);
-      }
-    });
-
-    async function handleTap() {
-  if (busy) return;
-  busy = true;
-  setTimeout(() => busy = false, 2000);
-
-  try {
-    const childId = document.getElementById("childId").value.trim();
-
-const response = await fetch(
-  "https://67q8x01rs0.execute-api.us-east-2.amazonaws.com/reward",
-  {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      childId: childId
-    })
-  }
-);
-
-    const result = await response.json();
-    const data = JSON.parse(result.body);
-
-    document.getElementById("count").textContent = data.rewards;
-    document.getElementById("reward").style.display = "block";
-
-    document.getElementById("cheerSound").play();
-    createConfetti(24);
-
-  } catch (error) {
-    console.error(error);
-    alert("Unable to save reward.");
-  }
+<style>
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:linear-gradient(#fff8e6,#e9f7ff);
+    text-align:center;
 }
 
-    function createConfetti(count){
-      const area = document.getElementById('confettiArea');
-      for(let i=0;i<count;i++){
-        const el = document.createElement('span');
-        el.style.left = Math.random()*100 + '%';
-        el.style.background = randomColor();
-        el.style.top = (Math.random()*10 - 10) + 'vh';
-        el.style.transform = `rotate(${Math.random()*360}deg)`;
-        el.style.animationDuration = (900 + Math.random()*600) + 'ms';
-        area.appendChild(el);
-        // remove later
-        setTimeout(()=> el.remove(), 1600);
-      }
-    }
-    function randomColor(){
-      const colors = ['#ff5aa5','#ffd166','#06d6a0','#4cc9f0','#f94144','#ffb703'];
-      return colors[Math.floor(Math.random()*colors.length)];
-    }
-  </script>
+header{
+    padding:20px;
+}
+
+h1{
+    color:#ff5aa5;
+}
+
+.sub{
+    margin-bottom:20px;
+}
+
+input{
+    padding:12px;
+    font-size:18px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    width:250px;
+}
+
+#bigBtn{
+    margin-top:20px;
+    font-size:34px;
+    background:linear-gradient(#4caf50,#2e8b57);
+    color:white;
+    padding:28px 40px;
+    border:none;
+    border-radius:28px;
+    cursor:pointer;
+    box-shadow:0 6px 0 #26774f;
+}
+
+#bigBtn:active{
+    transform:translateY(3px);
+    box-shadow:0 3px 0 #26774f;
+}
+
+#reward{
+    display:none;
+    margin-top:20px;
+}
+
+#reward img{
+    max-width:85%;
+    border-radius:12px;
+}
+
+nav{
+    margin-top:20px;
+}
+
+a{
+    color:#4a90e2;
+    text-decoration:none;
+}
+
+.confetti{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    pointer-events:none;
+    z-index:9999;
+}
+
+.confetti span{
+    position:absolute;
+    width:10px;
+    height:14px;
+    animation:fall 1.2s linear forwards;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-10vh) rotate(0deg);
+opacity:1;
+}
+100%{
+transform:translateY(110vh) rotate(360deg);
+opacity:0;
+}
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>Potty Time Hero 🚽✨</h1>
+
+<div class="sub">
+Tap the big button when you went potty!
+</div>
+
+</header>
+
+<main>
+
+<div>
+<label><strong>Child's Name</strong></label><br><br>
+
+<input
+id="childId"
+type="text"
+placeholder="Enter child's name"
+value="Emma">
+</div>
+
+<br>
+
+<button id="bigBtn" onclick="handleTap()">
+I went potty!
+</button>
+
+<div id="reward">
+
+<h2>🎉 Great Job! 🎉</h2>
+
+<p>
+You earned
+<span id="count">0</span>
+reward(s)
+</p>
+
+<img src="https://media2.giphy.com/media/JZLaL7vxYBMwOw4Vjd/giphy.gif">
+
+</div>
+
+<nav>
+
+<a href="rewards.html">Rewards</a> |
+<a href="parents.html">Parents</a>
+
+</nav>
+
+</main>
+
+<div id="confettiArea" class="confetti"></div>
+
+<audio id="cheerSound" src="greatjob.mp3"></audio>
+
+<script>
+
+let busy=false;
+
+async function handleTap(){
+
+if(busy) return;
+
+busy=true;
+
+setTimeout(()=>{
+busy=false;
+},2000);
+
+const childId=document.getElementById("childId").value.trim();
+
+try{
+
+const response=await fetch(
+"https://67q8x01rs0.execute-api.us-east-2.amazonaws.com/reward",
+{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+childId:childId
+})
+});
+
+const result=await response.json();
+
+const data=JSON.parse(result.body);
+
+document.getElementById("count").textContent=data.rewards;
+
+document.getElementById("reward").style.display="block";
+
+document.getElementById("cheerSound").play();
+
+createConfetti(30);
+
+}catch(err){
+
+console.error(err);
+
+alert("Unable to save reward.");
+
+}
+
+}
+
+function createConfetti(count){
+
+const area=document.getElementById("confettiArea");
+
+for(let i=0;i<count;i++){
+
+const piece=document.createElement("span");
+
+piece.style.left=Math.random()*100+"%";
+
+piece.style.background=randomColor();
+
+piece.style.animationDuration=(900+Math.random()*600)+"ms";
+
+area.appendChild(piece);
+
+setTimeout(()=>{
+piece.remove();
+},1600);
+
+}
+
+}
+
+function randomColor(){
+
+const colors=[
+"#ff5aa5",
+"#ffd166",
+"#06d6a0",
+"#4cc9f0",
+"#f94144",
+"#ffb703"
+];
+
+return colors[Math.floor(Math.random()*colors.length)];
+
+}
+
+</script>
+
 </body>
 </html>
-
